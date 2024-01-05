@@ -36,12 +36,19 @@ namespace DesafioFundamentos.Models
                 int horas = 0;
                 decimal valorTotal = 0; 
 
-                horas = Convert.ToInt32(Console.ReadLine());
-                valorTotal = precoInicial + (precoPorHora * horas);
+                try
+                {
+                    horas = Convert.ToInt32(Console.ReadLine());
+                    valorTotal = precoInicial + (precoPorHora * horas);
 
-                veiculos.Remove(placa);
+                    veiculos.Remove(placa);
 
-                Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: {valorTotal.ToString("C")}");
+                    Console.WriteLine($"O veículo {placa} foi removido e o preço total foi de: {valorTotal.ToString("C")}");
+                }
+                catch
+                {
+                    Console.WriteLine("A hora fornecida é invalida. Repita o processo.");
+                }
             }
             else
             {
